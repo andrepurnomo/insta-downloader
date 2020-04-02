@@ -20,21 +20,20 @@
       <div class="row">
         <div class="col">
           <h1>Instagram Downloader</h1>
-          <div class="input-group">
+          <div class="form-group">
+            <label for="formGroupExampleInput">Instagram URL</label>
             <input
-              class="form-control"
               type="text"
+              class="form-control"
               name="url"
-              placeholder="Instagram Url"
-              aria-label="Recipient's "
-              aria-describedby="my-addon"
+              id="formGroupExampleInput"
+              placeholder="Instagram URL"
             />
-            <div class="input-group-append">
-              <button onclick="download()" class="btn btn-primary">
-                Download
-              </button>
-            </div>
           </div>
+          <button type="button" onclick="download()" class="btn btn-primary">
+            Process
+          </button>
+          <a type="button" class="urlButton btn btn-success">Download</a>
         </div>
       </div>
     </div>
