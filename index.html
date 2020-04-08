@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
@@ -16,10 +18,26 @@
     <title>Instagram Downloader</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <h1>Instagram Downloader</h1>
+          <h1 class="text-center">Instagram Downloader</h1>
+          <div
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+          >
+            <h4 class="alert-heading">Mobile User!</h4>
+            For mobile user that have some issue show image / video rather than
+            downloading, please request this web to desktop version.
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
           <div class="form-group">
             <label for="formGroupExampleInput">Instagram URL</label>
             <input
@@ -33,12 +51,13 @@
           <button type="button" onclick="download()" class="btn btn-primary">
             Process
           </button>
-          <a
+          <button
             type="button"
             onclick="downloadProcess()"
             class="urlButton btn btn-success"
-            >Download</a
           >
+            Download
+          </button>
           <button
             type="button"
             onclick="reset()"
@@ -46,15 +65,6 @@
           >
             Reset
           </button>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 25px;">
-        <div class="col">
-          <ul class="list-group">
-            <li class="list-group-item active">Update</li>
-            <li class="list-group-item">Download Progress</li>
-            <li class="list-group-item">Etc..</li>
-          </ul>
         </div>
       </div>
     </div>
