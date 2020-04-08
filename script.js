@@ -11,8 +11,6 @@ function download() {
       if (media.is_video) urlDownload = media.video_url;
       else urlDownload = media.display_url;
 
-      $(".urlButton").attr("href", urlDownload);
-      $(".urlButton").attr("download", "");
       $(".urlButton").show();
     })
     .fail(function () {
@@ -23,4 +21,29 @@ function download() {
 function reset() {
   $(".urlButton").hide();
   $("input[name=url]").val("");
+}
+
+function downloadProcess() {
+  // Then somewhere in your code
+  $("#showProgress").modal("show");
+  new jsFileDownloader({
+    url: urlDownload,
+    process: process,
+  })
+    .then(function () {
+      $("#showProgress").modal("hide");
+      // Called when download ended
+    })
+    .catch(function (error) {
+      // Called when an error occurred
+      alert("Something went wrong, please check your internet connection.");
+    });
+}
+
+function process(event) {
+  if (!event.lengthComputable) return; // guard
+  var downloadingPercentage = Math.floor((event.loaded / event.total) * 100);
+  // what to do ...
+  $(".progress-bar").css("width", downloadingPercentage + "%");
+  $(".progress-bar").text(downloadingPercentage + "%");
 }
